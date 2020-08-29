@@ -1,0 +1,145 @@
+.sub-header {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/* === Header === */
+.navbar {
+    background-color: #C7D3D4FF;
+    opacity: 0.8;
+    width: 100%;
+}
+
+.navbar-brand {
+    color: #000;
+}
+
+/* === Sidebar === */
+.sidebar {
+    display: block;
+}
+
+.sidebar-item {
+    margin: 20px 0;
+}
+
+.sidebar-link {
+    color: #000;
+    font-size: 25px;
+}
+
+/* Sidebar navigation */
+.nav-sidebar {
+    display: block;
+}
+
+.nav-sidebar > li > a {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+    color: #fff;
+    background-color: #428bca;
+}
+
+
+/* === Main content === */
+.read-more-button {
+    background-color: #603F83FF;
+    color: #C7D3D4FF;
+    border: 2px solid #C7D3D4FF;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.read-more-button:hover {
+    background-color: #C7D3D4FF;
+    color: #603f83ff;
+    border: 2px solid #603f83ff;
+}
+
+.fa-trash-o, .fa-pencil-square-o {
+    color: #000;
+    font-size: 30px !important;
+}
+
+.slider-image-wrapper {
+    width: 100px;
+    height: 100px;
+}
+
+/* === Social Icon === */
+.fa {
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+    margin: 5px 2px;
+    border-radius: 50%;
+    text-decoration: none;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+    color: white;
+}
+
+.fa-linkedin {
+    color: white;
+}
+
+.fa-youtube {
+    color: white;
+}
+
+.fa-instagram {
+    color: white;
+}
+
+/* === Placeholder dashboard === */
+.admin-information {
+    width: 400px;
+}
+
+.dashboard-section .col-sm-9{
+    margin: auto;
+}
+
+
+@media (max-width: 768px) {
+    .dashboard-section .col-sm-9{
+        margin: auto 0 auto auto;
+    }
+}
+
+@media screen and (max-width: 575px){
+    .sidebar{
+        padding-top: 40px;
+    }
+
+    .navbar-brand{
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 576px) {
+    .sidebar {
+        position: fixed;
+        top: 55px;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        display: block;
+        padding: 20px 0;
+        text-align: center;
+        overflow-x: hidden;
+        overflow-y: auto;
+        background-color: #f5f5f5;
+        border-right: 1px solid #eee;
+    }
+}

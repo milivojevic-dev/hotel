@@ -1,0 +1,293 @@
+@font-face {
+    font-family: "QuickSand";
+    src: url("../fonts/QuickSand/Quicksand-Regular.ttf");
+}
+
+body {
+    font-family: "QuickSand";
+}
+
+/* === Header === */
+.logo {
+    background-image: url("../image/logo/logo1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 89px;
+    width: 81px;
+}
+
+.navbar {
+    background-color: #C7D3D4FF;
+    opacity: 0.8;
+    width: 100%;
+}
+
+.nav-link {
+    color: #000;
+    transition: 0.3s;
+}
+
+
+.nav-link:hover {
+    color: #603f83;
+}
+
+.navbar-toggler {
+    background-color: #603f83;
+}
+
+/* === Header End === */
+
+/* color fill*/
+.f {
+    color: white;
+}
+
+h3 {
+    color: white;
+}
+
+/* color fill end*/
+.carousel-inner img {
+    width: 100%; /* Set width to 100% */
+    margin: auto;
+    min-height: 50px;
+}
+
+/* === Carousel Section === */
+.carousel-indicators li {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.slider-image {
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 800px;
+    background-size: cover;
+}
+
+/* === Carousel Section End === */
+
+/* === Login === */
+.login-section{
+    padding: 160px 0 40px;
+}
+/* === Login End === */
+
+/* === Rooms Section === */
+.room-section {
+    background-color: #C7D3D4FF;
+    padding: 50px 0;
+}
+
+.room-image {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+}
+
+.read-more-button {
+    background-color: #603F83FF;
+    color: #C7D3D4FF;
+    border: 2px solid #C7D3D4FF;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.read-more-button:hover {
+    background-color: #C7D3D4FF;
+    color: #603f83ff;
+    border: 2px solid #603f83ff;
+}
+
+.room-title {
+    color: #603f83;
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.room-description {
+    color: #603F83FF;
+    margin-bottom: 16px;
+}
+
+.room-section .col-sm-4 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* === Rooms Section End === */
+
+/* === Footer === */
+footer {
+    background-color: #603F83FF;
+    color: #C7D3D4FF;
+    padding: 20px 30px;
+}
+
+.light-logo {
+    height: 100px;
+    margin-bottom: 15px;
+}
+
+/* === Footer End === */
+
+/* === Social Icons === */
+.fa {
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+    margin: 5px 2px;
+    border-radius: 50%;
+    text-decoration: none;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+    color: white;
+}
+
+.fa-linkedin {
+    color: white;
+}
+
+.fa-youtube {
+    color: white;
+}
+
+.fa-instagram {
+    color: white;
+}
+
+/* === Social Icons End === */
+
+/* === About === */
+.about-section {
+    padding: 160px 0 40px;
+}
+
+/* === About End === */
+
+/* === Gallery === */
+.gallery-section {
+    padding: 140px 0 40px;
+}
+
+/* === Gallery End === */
+
+/* === Room Details === */
+.room-details-section {
+    padding: 250px 0 30px;
+}
+
+.room-text-wrap {
+    color: #000;
+    margin: 5px 0 10px
+}
+
+.room-type {
+    padding: 8px 0;
+    display: block;
+    position: relative;
+    color: #603F83FF;
+    text-decoration: none;
+}
+
+.room-type:after {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #C7D3D4FF;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+}
+
+.panel-heading {
+    text-align: center;
+}
+
+/* === Room Details End === */
+
+/* === Image Gallery === */
+#gallery img {
+    width: 100%;
+    height: 100%;
+}
+
+/* === Image Gallery End === */
+
+/* === Registration Form === */
+.registration-section {
+    padding: 160px 0 50px;
+}
+
+.submit {
+    margin-top: 20px;
+    margin-left: 15px;
+}
+
+/* === Registration Form End === */
+
+/* === Booking Details === */
+.order-section {
+    padding: 100px 0 40px;
+}
+
+.fa-trash-o, .fa-pencil-square-o {
+    color: #000;
+    font-size: 30px !important;
+}
+
+/* === Booking Details End === */
+
+/* === User Profile Section === */
+.user-profile {
+    padding: 140px 0 40px;
+}
+
+/* === User Profile Section End === */
+
+/* === Admin === */
+.admin-section {
+    padding: 130px 0 40px;
+    min-height: 57vh;
+}
+
+.navbar-nav{
+    align-items: center;
+}
+
+li.dropdown a{
+    color: #000;
+}
+
+.dropdown-menu.show{
+    padding-left: 4px;
+}
+
+/* === Admin End === */
+@media screen and (max-width: 767px) {
+
+    footer .col-md-3 {
+        padding-top: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .carousel-caption {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .slider-image {
+        height: 400px;
+    }
+}
