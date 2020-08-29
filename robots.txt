@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /index.php
+Disallow: /about.php
+Disallow: /image-gallery.php
