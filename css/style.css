@@ -70,11 +70,6 @@ h3 {
 
 /* === Carousel Section End === */
 
-/* === Login === */
-.login-section{
-    padding: 160px 0 40px;
-}
-/* === Login End === */
 
 /* === Rooms Section === */
 .room-section {
@@ -273,6 +268,12 @@ li.dropdown a{
 }
 
 /* === Admin End === */
+
+/* === Booking Form === */
+.booking-form-section{
+    padding-top: 230px;
+}
+/* === Booking Form End === */
 @media screen and (max-width: 767px) {
 
     footer .col-md-3 {
