@@ -1,29 +1,22 @@
 <?php
-include('menu-bar.php');
-include('db_config.php');
-if ($eid == "") {
-    header('location:login.php');
-}
-$sql = mysqli_query($con, "SELECT * FROM room_booking_details WHERE email='$eid' ");
-$result = mysqli_fetch_assoc($sql);
-//print_r($result);
+session_start();
 extract($_REQUEST);
-error_reporting(1);
+include('db_config.php');
+$admin = $_SESSION['user_logged_in'];
+if ($admin == "") {
+    header('location:pagetemplate-home.php');
+}
+
 if (isset($savedata)) {
-    $sql = mysqli_query($con, "SELECT * FROM room_booking_details WHERE email='$email' AND room_type='$room_type' ");
+    $sql = mysqli_query($con, "SELECT * FROM room_booking_details WHERE email='$email_id' AND room_type='$room_type' ");
     if (mysqli_num_rows($sql)) {
         $msg = "<h1>You have already booked this room</h1>";
     } else {
-
-        $sql = "INSERT INTO room_booking_details(name,email,phone,address,city,state,zip,contry,room_type,occupancy,check_in_date,check_out_date) 
-  VALUES('$name','$email','$phone','$address','$city','$state','$zip','$country',
-  '$room_type','$occupancy','$check_in_date','$check_out_date')";
-        if (mysqli_query($con, $sql)) {
-            $msg = "<h1>You have Successfully booked this room</h1>
-<h2><a href='order.php'>View </a></h2>";
+        mysqli_query ($con, "INSERT INTO room_booking_details VALUES('$name','$email_id','$phone','$address','$city','$state','$zip','$country',
+  '$room_type','$occupancy','$check_in_date','$check_out_date')");
+            $msg = "<h1>You have Successfully booked this room</h1>";
         }
     }
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,23 +35,43 @@ if (isset($savedata)) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<?php
-include('menu-bar.php');
-?>
+<nav class="navbar fixed-top navbar-expand-lg">
+    <a href="" class="navbar-brand">
+        <div class="logo"></div>
+    </a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="index.php" title="Home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.php" title="About">About </a></li>
+            <li class="nav-item"><a class="nav-link" href="image-gallery.php" title="Gallery">Gallery </a></li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="logout.php" title="Logout">
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
 <section class="booking-form-section text-center">
     <h1> BOOKING Form </h1>
     <div class="container">
-        <div class="row">
             <?php echo $msg; ?>
             <form class="form-horizontal" method="post">
-                <div class="col-sm-6">
+                         <div class="row">
+                <div class="col-sm-12">
                     <div class="form-group">
                         <div class="row">
                             <div class="control-label col-sm-4">
                                 <h4> Name :</h4>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" value="<?php echo $result['name']; ?>" readonly="readonly"
+                                <input type="text" value="<?php echo $result['name']; ?>"
                                        class="form-control" name="name" placeholder="Enter Your Frist Name" required>
                             </div>
                         </div>
@@ -70,7 +83,7 @@ include('menu-bar.php');
                                 <h4>Email :</h4>
                             </div>
                             <div class="col-sm-8">
-                                <input type="email" value="<?php echo $result['email']; ?>" readonly="readonly"
+                                <input type="email" value="<?php echo $result['email']; ?>"
                                        class="form-control" name="email" placeholder="Enter Your Email-Id" required/>
                             </div>
                         </div>
@@ -82,7 +95,7 @@ include('menu-bar.php');
                                 <h4>Mobile :</h4>
                             </div>
                             <div class="col-sm-8">
-                                <input type="number" value="<?php echo $result['mobile']; ?>" readonly="readonly"
+                                <input type="number" value="<?php echo $result['mobile']; ?>"
                                        class="form-control" name="phone" placeholder="Type Your Phone Number" required>
                             </div>
                         </div>
@@ -94,7 +107,7 @@ include('menu-bar.php');
                                 <h4>Address :</h4>
                             </div>
                             <div class="col-sm-8">
-                                <textarea name="address" class="form-control" readonly="readonly"
+                                <textarea name="address" class="form-control"
                                           placeholder="Enter Your Address"><?php echo $result['address']; ?></textarea>
                             </div>
                         </div>
@@ -103,36 +116,38 @@ include('menu-bar.php');
                     <div class="form-group">
                         <div class="row">
                             <div class="control-label col-sm-4">
-                                <h4>Country: </h4>
+                                <h4>City: </h4>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" readonly="readonly"
-                                       value="<?php echo $result['country']; ?>" name="city"
+                                <input type="text" class="form-control"
+                                       value="<?php echo $result['city']; ?>" name="city"
                                        placeholder="Enter Your City Name" required>
                             </div>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="control-label col-sm-4">
-                                <h4>State: </h4>
-                            </div>
-                            <div class="col-sm-8">
-                                <input type="hidden" name="state" class="form-control"
-                                       placeholder="Enter Your State Name" required>
-                            </div>
-                        </div>
-                    </div>
-
+                
                     <div class="form-group">
                         <div class="row">
                             <div class="control-label col-sm-4">
                                 <h4>Zip: </h4>
                             </div>
                             <div class="col-sm-8">
-                                <input type="hidden" name="zip" class="form-control" placeholder="Enter Your Zip Code"
-                                       required>
+                                <input type="text" name="zip" class="form-control" placeholder="Enter Your Zip Code"
+                                       value="<?php echo $result['zip']; ?>" name="zip"
+                                     required>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <div class="row">
+                            <div class="control-label col-sm-4">
+                                <h4>Country: </h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" name="country" class="form-control" placeholder="Enter Your country name"
+                                       value="<?php echo $result['country']; ?>" name="country"
+                                     required>
                             </div>
                         </div>
                     </div>
@@ -199,9 +214,8 @@ include('menu-bar.php');
                     </div>
                     <input type="submit" value="submit" name="save-data" class="btn read-more-button"/>
                 </div>
-            </form>
-            <br>
-        </div>
+            </div>
+        </form>
     </div>
 </section>
 </div>
